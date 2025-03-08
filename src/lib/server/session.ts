@@ -1,10 +1,9 @@
-import { PrismaClient, User } from "@prisma/client";
+import { User } from "@prisma/client";
 import { encodeBase32, encodeHexLowerCase } from "@oslojs/encoding";
 import { sha256 } from "@oslojs/crypto/sha2";
 import { cookies } from "next/headers";
 import { cache } from "react";
-
-const prisma = new PrismaClient();
+import { prisma } from "@/lib/server/db";
 
 export interface Session {
   id: string;
