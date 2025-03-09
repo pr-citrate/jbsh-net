@@ -7,7 +7,7 @@ export async function createUser(
   name: string,
   picture: string,
 ): Promise<User> {
-  const user = await prisma.user.create({
+  return await prisma.user.create({
     data: {
       googleId,
       email,
@@ -15,14 +15,12 @@ export async function createUser(
       picture,
     },
   });
-  return user;
 }
 
 export async function getUserFromGoogleId(
   googleId: string,
 ): Promise<User | null> {
-  const user = await prisma.user.findUnique({
+  return await prisma.user.findUnique({
     where: { googleId },
   });
-  return user;
 }
