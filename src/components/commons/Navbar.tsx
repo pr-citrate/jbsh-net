@@ -1,5 +1,6 @@
 import { getCurrentSession } from "@/lib/server/session";
 import { LogoutButton } from "@/components/commons/LogoutButton";
+import Image from "next/image";
 
 export default async function Navbar() {
   const { user } = await getCurrentSession();
@@ -45,7 +46,7 @@ export default async function Navbar() {
         {
           user ? (
             <div className={"flex items-center gap-2"}>
-              <img src={user.picture} alt={"profile"} className={"avatar w-8 h-8 rounded-full"}/>
+              <Image src={user.picture} alt={"profile"} className={"avatar w-8 h-8 rounded-full"}/>
               <div className={"dropdown dropdown-hover"}>
                 <div tabIndex={0} className={"btn btn-ghost bg-base-100"}>
                   {user.name}
